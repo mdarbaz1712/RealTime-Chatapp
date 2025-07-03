@@ -16,7 +16,7 @@ export const useChatStore = create((set, get) => ({
       const res = await axiosInstance.get("/messages/users");
       set({ users: res.data });
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message || "An error occurred");
     } finally {
       set({ isUsersLoading: false });
     }
@@ -28,18 +28,19 @@ export const useChatStore = create((set, get) => ({
       const res = await axiosInstance.get(`/messages/chat/${userId}`);
       set({ messages: res.data });
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message || "An error occurred");
     } finally {
       set({ isMessagesLoading: false });
     }
   },
   sendMessage: async (messageData) => {
     const { selectedUser, messages } = get();
+    if (!selectedUser) return;
     try {
       const res = await axiosInstance.post(`/messages/send/${selectedUser._id}`, messageData);
       set({ messages: [...messages, res.data] });
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message || "An error occurred");
     }
   },
 

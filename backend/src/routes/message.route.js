@@ -6,7 +6,7 @@ const router=express.Router()
 
 router.get("/users",authenticationCheck,getUsersForSideBar)
 
-router.get("/:id",authenticationCheck,getMessages)
+router.get("/msg/:id",authenticationCheck,getMessages)
 
 router.post("/send/:id",authenticationCheck,sendMessage)
 

@@ -25,6 +25,7 @@ export const authenticationCheck=async(req,res,next)=>{
         next();
     }
     catch(error){
+        console.log("error")
         return res.send(501).json({message:"Internal Server Error !!!"})
     }
 

@@ -7,11 +7,11 @@ const PREVIEW_MESSAGES = [
   { id: 2, content: "I'm doing great! Just working on some new features.", isSent: true },
 ];
 
-const Settings = () => {
+const SettingsPage = () => {
   const { theme, setTheme } = useThemeStore();
 
   return (
-    <div className="h-screen container mx-auto px-4 pt-20 max-w-5xl" data-theme={theme}>
+    <div className="h-screen container mx-auto px-4 pt-20 max-w-5xl">
       <div className="space-y-6">
         <div className="flex flex-col gap-1">
           <h2 className="text-lg font-semibold">Theme</h2>
@@ -44,7 +44,7 @@ const Settings = () => {
         </div>
 
         {/* Preview Section */}
-        <h3 className="text-lg font-semibold mb-3" data-theme={theme}>Preview</h3>
+        <h3 className="text-lg font-semibold mb-3">Preview</h3>
         <div className="rounded-xl border border-base-300 overflow-hidden bg-base-100 shadow-lg">
           <div className="p-4 bg-base-200">
             <div className="max-w-lg mx-auto">
@@ -113,4 +113,4 @@ const Settings = () => {
     </div>
   );
 };
-export default Settings;
+export default SettingsPage;
